@@ -10,12 +10,8 @@ from hitcount.settings import MODEL_HITCOUNT
 
 class Article(models.Model, HitCountMixin):
     title = models.CharField('Титле', max_length=250)
-    title_h2 = models.CharField('Титле-2', max_length=250)
-    title_h3 = models.CharField('Титле-3', max_length=250)
     poster = models.ImageField('Постер', upload_to='articles/poster')
-    image_right = models.ImageField('Изображение', upload_to='articles/image')
-    desc_h2 = RichTextUploadingField('Описание-2')
-    desc_h3 = RichTextUploadingField('Описание-3')
+    description = RichTextUploadingField('Описание')
     created_at = models.DateTimeField(auto_now_add=True)
     hit_count_generic = GenericRelation(
         HitCount, object_id_field='object_pk',

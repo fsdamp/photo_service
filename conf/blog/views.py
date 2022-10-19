@@ -11,6 +11,9 @@ from hitcount.views import HitCountMixin
 
 
 class ArticlesView(generics.ListAPIView):
+    """
+    you can sort articles via popularity and newest
+    """
     # permission_classes = (permissions.AllowAny,)
     queryset = Article.objects.all()
     serializer_class = ArticlesSerializer

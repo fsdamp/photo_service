@@ -8,7 +8,7 @@ class ArticlesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Article
-        fields = ('id', 'title', 'poster', 'desc_h2', 'views', 'created_at')
+        fields = ('id', 'title', 'poster', 'views', 'created_at')
 
     @staticmethod
     def get_views(obj):
