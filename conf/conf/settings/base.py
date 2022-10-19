@@ -40,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'blog.middleware.CheckJWTTokenMiddleware',
 ]
 
 ROOT_URLCONF = 'conf.urls'
@@ -63,11 +64,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'conf.wsgi.application'
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    # ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_FILTER_BACKENDS': [
@@ -120,7 +121,7 @@ SIMPLE_JWT = {
     'UPDATE_LAST_LOGIN': True,
 
     'ALGORITHM': 'HS256',
-    'SIGNING_KEY': os.getenv("DJANGO_SECRET_KEY", 'z+)01)4gr@klv9l!915jmfo5o5b)b%x0c8gqq7fg&&673bajat'),
+    'SIGNING_KEY': os.getenv("DJANGO_SECRET_KEY", 'django-insecure-o0lv(_-h*@oe3m&6q&0r1m475nfu+=#ke%(8x=@eu-3@w6%ev)'),
     'VERIFYING_KEY': None,
     'AUDIENCE': None,
     'ISSUER': None,

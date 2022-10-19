@@ -11,9 +11,10 @@ from hitcount.views import HitCountMixin
 
 
 class ArticlesView(generics.ListAPIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.AllowAny,)
     queryset = Article.objects.all()
     serializer_class = ArticlesSerializer
+
     # filter_backends = (filters.DjangoFilterBackend,)
     # filterset_fields = ('is_new', 'is_popular')
 
@@ -23,8 +24,9 @@ class ArticlesView(generics.ListAPIView):
             return 'hit_count_generic__hits'
         return ordering
 
+
 class ArticleDetailView(generics.RetrieveAPIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
     queryset = Article.objects.all()
     serializer_class = ArticleDetailSerializer
 
