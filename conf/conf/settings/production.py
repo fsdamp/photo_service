@@ -12,7 +12,7 @@ SECRET_KEY = getenv('SECRET_KEY', 'django-insecure-o0lv(_-h*@oe3m&6q&0r1m475nfu+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
