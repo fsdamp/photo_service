@@ -37,8 +37,16 @@ def jwt_checker(request):
     if not token:
         return False
     try:
-        # decoding the payload to fetch the stored details
+
         data = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+
+        data = {
+            'app_name': 2,
+            'secret_key': 123123123
+        }
+        key = 'k%4!f@&0(c$*h2#6+!t^cpm2=ctsh6k-ld9l-l2zudr$jaenw'
+        jwt.encode(payload=data, key=key, algorithm='HS256')
+
         current_user = User.objects.get(id=data['user_id'])
         if not current_user:
             return False
