@@ -10,8 +10,8 @@ class ArticlesListFilter(BaseFilterBackend):
                 required=False,
                 location='query',
                 schema=coreschema.String(
-                    title='Вы можете сортировать по новый(new) или популярносты(popular)',
-                    description='Вы можете сортировать по новый(new) или популярносты(popular)'
+                    title='Сортировка по: new (новые) / popular (популярные)',
+                    description='Сортировка по: new (новые) / popular (популярные)'
                 ),
                 type=str,
                 description='order_by',
