@@ -29,7 +29,7 @@ class MainArticlesView(generics.ListAPIView):
     def get_queryset(self):
         new = Article.objects.exclude(is_main=True).order_by('-id')[:3]
         most_views = Article.objects.exclude(is_main=True, id__in=list(new.values_list('id', flat=True))).order_by('-hit_count_generic__hits')[:3]
-        main = Article.objects.all().filter(is_main=True)
+        main = Article.objects.filter(is_main=True)
         return most_views | new | main
 
 
